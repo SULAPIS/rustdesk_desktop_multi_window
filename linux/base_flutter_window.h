@@ -31,6 +31,8 @@ public:
 
   void SetFullscreen(bool fullscreen);
 
+  void SetAlwaysOnTop(bool alwaysOnTop);
+
   void Close();
 
   void SetTitle(const std::string &title);

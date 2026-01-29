@@ -85,6 +85,15 @@ void BaseFlutterWindow::SetFullscreen(bool fullscreen) {
     gtk_window_unfullscreen(window);
 }
 
+void BaseFlutterWindow::SetAlwaysOnTop(bool alwaysOnTop) {
+  auto window = GetWindow();
+  if (!window) {
+    return;
+  }
+
+  gtk_window_set_keep_above(window, alwaysOnTop ? TRUE : FALSE);
+}
+
 void BaseFlutterWindow::SetBounds(double_t x, double_t y, double_t width,
                                   double_t height) {
   auto window = GetWindow();

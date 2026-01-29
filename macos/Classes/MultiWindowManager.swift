@@ -182,6 +182,14 @@ class MultiWindowManager {
       window.setFullscreen(fullscreen: fullscreen)
   }
 
+  func setAlwaysOnTop(windowId: Int64, alwaysOnTop: Bool) {
+      guard let window = windows[windowId] else {
+        debugPrint("window \(windowId) not exists.")
+        return
+      }
+      window.setAlwaysOnTop(alwaysOnTop: alwaysOnTop)
+  }
+
   func setFrame(windowId: Int64, frame: NSRect) {
     guard let window = windows[windowId] else {
       debugPrint("window \(windowId) not exists.")

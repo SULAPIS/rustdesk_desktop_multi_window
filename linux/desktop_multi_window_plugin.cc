@@ -88,6 +88,12 @@ static void desktop_multi_window_plugin_handle_method_call(
     auto window_id = fl_value_get_int(args);
     MultiWindowManager::Instance()->Focus(window_id);
     response = FL_METHOD_RESPONSE(fl_method_success_response_new(nullptr));
+  } else if (g_strcmp0(method, "setAlwaysOnTop") == 0) {
+      auto *args = fl_method_call_get_args(method_call);
+      auto window_id = fl_value_get_int(fl_value_lookup_string(args, "windowId"));
+      auto always_on_top = fl_value_get_bool(fl_value_lookup_string(args, "alwaysOnTop"));
+      MultiWindowManager::Instance()->SetAlwaysOnTop(window_id, always_on_top);
+      response = FL_METHOD_RESPONSE(fl_method_success_response_new(nullptr));
   } else if (g_strcmp0(method, "setFullscreen") == 0) {
     auto *args = fl_method_call_get_args(method_call);
     auto window_id = fl_value_get_int(fl_value_lookup_string(args, "windowId"));

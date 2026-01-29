@@ -67,6 +67,9 @@ abstract class WindowController {
   /// Make the window full screen or not
   Future<void> setFullscreen(bool fullscreen);
 
+  /// Make the window always on top or not
+  Future<void> setAlwaysOnTop(bool alwaysOnTop);
+
   /// Set the window frame rect.
   Future<void> setFrame(Rect frame);
 

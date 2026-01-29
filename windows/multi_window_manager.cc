@@ -160,6 +160,13 @@ auto window = windows_.find(id);
   }
 }
 
+void MultiWindowManager::SetAlwaysOnTop(int64_t id, bool alwaysOnTop) {
+  auto window = windows_.find(id);
+  if (window != windows_.end()) {
+    window->second->SetAlwaysOnTop(alwaysOnTop);
+  }
+}
+
 std::vector<int64_t> MultiWindowManager::GetAllSubWindowIds() {
   std::vector<int64_t> ids;
   for (auto &window : windows_) {

@@ -167,6 +167,15 @@ void MultiWindowManager::SetFullscreen(int64_t id, bool fullscreen) {
   UNLOCK_WINDOW;
 }
 
+void MultiWindowManager::SetAlwaysOnTop(int64_t id, bool alwaysOnTop) {
+    RLOCK_WINDOW;
+    auto window = windows_.find(id);
+    if (window != windows_.end()) {
+        window->second->SetAlwaysOnTop(alwaysOnTop);
+    }
+    UNLOCK_WINDOW;
+}
+
 void MultiWindowManager::SetFrame(int64_t id, double x, double y, double width, double height) {
   RLOCK_WINDOW;
   auto window = windows_.find(id);

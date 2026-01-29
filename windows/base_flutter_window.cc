@@ -166,6 +166,20 @@ void BaseFlutterWindow::SetFullscreen(bool fullscreen) {
     }
 }
 
+void BaseFlutterWindow::SetAlwaysOnTop(bool alwaysOnTop) {
+    auto window = GetWindowHandle();
+    if (!window) {
+        return;
+    }
+
+    SetWindowPos(
+        window,
+        alwaysOnTop ? HWND_TOPMOST : HWND_NOTOPMOST,
+        0, 0, 0, 0,
+        SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE
+    );
+}
+
 void BaseFlutterWindow::StartDragging() {
     auto window = GetWindowHandle();
     if (!window) {

@@ -99,6 +99,14 @@ class WindowControllerMainImpl extends WindowController {
   }
 
   @override
+  Future<void> setAlwaysOnTop(bool alwaysOnTop) {
+    return _channel.invokeMethod('setAlwaysOnTop', <String, dynamic>{
+      'windowId': _id,
+      'alwaysOnTop': alwaysOnTop,
+    });
+  }
+
+  @override
   Future<void> startDragging() {
     return _channel.invokeMethod('startDragging', _id);
   }

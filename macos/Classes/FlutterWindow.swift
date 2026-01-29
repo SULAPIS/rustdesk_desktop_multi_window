@@ -100,6 +100,10 @@ class BaseFlutterWindow: NSObject {
     }
   }
 
+  func setAlwaysOnTop(alwaysOnTop: Bool) {
+    window.level = alwaysOnTop ? .floating : .normal
+  }
+
   func setFrame(frame: NSRect) {
     window.setFrame(frame, display: false, animate: true)
   }

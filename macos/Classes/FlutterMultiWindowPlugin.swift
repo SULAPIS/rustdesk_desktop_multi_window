@@ -140,6 +140,12 @@ public class FlutterMultiWindowPlugin: NSObject, FlutterPlugin {
       let fullscreen = arguments["fullscreen"] as! Bool
       MultiWindowManager.shared.setFullscreen(windowId: windowId, fullscreen: fullscreen)
       result(nil)
+    case "setAlwaysOnTop":
+      let arguments = call.arguments as! [String: Any?]
+      let windowId = arguments["windowId"] as! Int64
+      let alwaysOnTop = arguments["alwaysOnTop"] as! Bool
+      MultiWindowManager.shared.setAlwaysOnTop(windowId: windowId, alwaysOnTop: alwaysOnTop)
+      result(nil)
     case "startResizing":
       let arguments = call.arguments as! [String: Any?]
       let windowId = arguments["windowId"] as! Int64

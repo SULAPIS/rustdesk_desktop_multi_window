@@ -272,6 +272,18 @@ class _SubWindowContentState extends State<SubWindowContent>
               ),
               TextButton(
                 onPressed: () async {
+                  widget.windowController.setAlwaysOnTop(true);
+                },
+                child: const Text('set always on top'),
+              ),
+              TextButton(
+                onPressed: () async {
+                  widget.windowController.setAlwaysOnTop(false);
+                },
+                child: const Text('cancel always on top'),
+              ),
+              TextButton(
+                onPressed: () async {
                   widget.windowController.minimize();
                 },
                 child: const Text('minimize'),
